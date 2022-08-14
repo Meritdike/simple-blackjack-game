@@ -82,3 +82,20 @@ function newCard() {
     }
     
 }
+
+function newGame() {
+    cardsArr =[];
+    sum = 0;
+    printMessage = 'Want to play a round?'
+    hasBlackjack = false; //has no blackjack ie 21 before the start of the game
+    isAlive = false; //is not alive before the game starts
+    player = {
+        name: 'MERIT',
+        chips: 250
+    }
+
+    cardSum.textContent = 'Sum: '
+    cards.textContent = 'Cards: '
+    message.textContent = printMessage;
+    playerChips.textContent = player.name + ': $' + player.chips
+}
