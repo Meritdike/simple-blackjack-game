@@ -5,10 +5,12 @@ let playerChips = document.getElementById('player-chips');
 let cardsArr =[];
 let sum = 0;
 let printMessage = ''
-let hasBlackjack = false; 
-let isAlive = false;
+let hasBlackjack = false; //has no blackjack ie 21 before the start of the game
+let isAlive = false; //is not alive before the game starts
 
 
+
+//renders cards, card-sum and updates the message when the start game or new card button is clicked
 function renderCards() {
     cards.textContent = 'Cards: '
     for (let i = 0; i < cardsArr.length; i++) {
@@ -35,17 +37,18 @@ function startGame() {
     let secondCard = getRandomCard()
 
     cardsArr = [firstCard, secondCard]
-    sum = firstCard + secondCard
+    sum = parseInt(firstCard) + parseInt(secondCard) //converts the prompt string to number
     
     renderCards()
 } 
 
+//gets random numbers when the start and new card buttons are clicked
 function getRandomCard() {
     let getRamdomCard = Math.floor(Math.random() * 13) + 1;
     if(getRamdomCard > 10) {
         return 10
     } else if(getRamdomCard === 1) {
-        return 11
+        return (prompt('Do you want 11 or 1')) //Ace is either 1 or 11 as chosen by the player
     } else {
         return getRamdomCard
     }
@@ -55,7 +58,7 @@ function newCard() {
     if(isAlive === true && sum !== 21) {
         let card = getRandomCard()
         cardsArr.push(card)
-        sum += card
+        sum += parseInt(card)
         renderCards()
     }
 }
