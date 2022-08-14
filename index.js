@@ -75,7 +75,7 @@ function newCard() {
         if(isAlive === false && sum > 21) {
             player.chips -= 10; 
             playerChips.textContent = player.name + ': $' + player.chips
-        } else if(isAlive === true && hasBlackjack == true) {
+        } else if(isAlive === true && sum === 21) {
             player.chips += 7; 
             playerChips.textContent = player.name + ': $' + player.chips
         }
