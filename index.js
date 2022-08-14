@@ -7,6 +7,12 @@ let sum = 0;
 let printMessage = ''
 let hasBlackjack = false; //has no blackjack ie 21 before the start of the game
 let isAlive = false; //is not alive before the game starts
+let player = {
+    name: 'MERIT',
+    chips: 250
+}
+
+playerChips.textContent = player.name + ': $' + player.chips
 
 
 
@@ -38,8 +44,13 @@ function startGame() {
 
     cardsArr = [firstCard, secondCard]
     sum = parseInt(firstCard) + parseInt(secondCard) //converts the prompt string to number
-    
+
     renderCards()
+
+    if(isAlive === true && sum === 21) {
+        player.chips += 7; 
+        playerChips.textContent = player.name + ': $' + player.chips
+    }
 } 
 
 //gets random numbers when the start and new card buttons are clicked
@@ -60,5 +71,14 @@ function newCard() {
         cardsArr.push(card)
         sum += parseInt(card)
         renderCards()
+
+        if(isAlive === false && sum > 21) {
+            player.chips -= 10; 
+            playerChips.textContent = player.name + ': $' + player.chips
+        } else if(isAlive === true && hasBlackjack == true) {
+            player.chips += 7; 
+            playerChips.textContent = player.name + ': $' + player.chips
+        }
     }
+    
 }
