@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(../img/blackjack-bg.jpg);
+    background-size: cover;
+    background-position: cover;
+    background-repeat: no-repeat;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: goldenrod;
+}
+
+#message {
+    font-style: italic;
+}
+
+p {
+    color: white;
+    padding-top: 18px;
+    font-size: 1.3rem;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: goldenrod;
+    color: #016f32;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 18px;
+    margin-right: 10px;
+}
+
+button:hover {
+    background: rgb(180, 133, 14);
+}
+
+button:active {
+    background: rgb(141, 105, 13);
+}
+
+@media (max-width: 500px) {
+    .btns {
+        display: flex;
+        flex-direction: column;
+    }
+
+    button {
+        margin-top: 10px;
+        margin-right: 0;
+    }
+}
