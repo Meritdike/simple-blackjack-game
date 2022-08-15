@@ -65,13 +65,7 @@ function getRandomCard() {
     if(getRamdomCard > 10) {
         return 10
     } else if(getRamdomCard === 1) {
-       let aceValue = prompt('Do you want 11 or 1') //Ace is either 1 or 11 as chosen by the player
-        if (aceValue === '' || aceValue > 1 || aceValue < 11) {
-            alert('You must enter either 1 or 11')
-            return 0;
-        } else {
-            return aceValue;
-        }
+            return 11
     } else {
         return getRamdomCard
     }
@@ -90,6 +84,11 @@ function newCard() {
         } else if(isAlive === true && sum === 21) {
             player.chips += 7; 
             playerChips.textContent = player.name + ': $' + player.chips
+        }
+
+        if (player.chips < 1) {
+            alert("You're out of chips! Start a new game?")
+            newGame()
         }
     }
     
